@@ -1,9 +1,10 @@
-package com.example.foolishfan.user_v10;
+package com.example.foolishfan.user_v10.activity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -13,7 +14,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Login extends Activity {                 //登录界面活动
+import com.example.foolishfan.user_v10.R;
+import com.example.foolishfan.user_v10.db.UserDataManager;
+
+public class LoginActivity extends Activity {                 //登录界面活动
 
     public int pwdresetFlag=0;
     private EditText mAccount;                        //用户名编辑
@@ -31,7 +35,28 @@ public class Login extends Activity {                 //登录界面活动
     private TextView loginSuccessShow;
     private TextView mChangepwdText;
     private UserDataManager mUserDataManager;         //用户数据管理类
-
+    OnClickListener mListener = new OnClickListener() {                  //不同按钮按下的监听事件选择
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.login_btn_register:                            //登录界面的注册按钮
+                    Intent intent_Login_to_Register = new Intent(LoginActivity.this, RegisterActivity.class);    //切换Login Activity至User Activity
+                    startActivity(intent_Login_to_Register);
+                    finish();
+                    break;
+                case R.id.login_btn_login:                              //登录界面的登录按钮
+                    login();
+                    break;
+                case R.id.login_btn_cancle:                             //登录界面的注销按钮
+                    cancel();
+                    break;
+                case R.id.login_text_change_pwd:                             //登录界面的注销按钮
+                    Intent intent_Login_to_reset = new Intent(LoginActivity.this, ResetpwdActivity.class);    //切换Login Activity至User Activity
+                    startActivity(intent_Login_to_reset);
+                    finish();
+                    break;
+            }
+        }
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -76,28 +101,6 @@ public class Login extends Activity {                 //登录界面活动
             mUserDataManager.openDataBase();                              //建立本地数据库
         }
     }
-    OnClickListener mListener = new OnClickListener() {                  //不同按钮按下的监听事件选择
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.login_btn_register:                            //登录界面的注册按钮
-                    Intent intent_Login_to_Register = new Intent(Login.this,Register.class) ;    //切换Login Activity至User Activity
-                    startActivity(intent_Login_to_Register);
-                    finish();
-                    break;
-                case R.id.login_btn_login:                              //登录界面的登录按钮
-                    login();
-                    break;
-                case R.id.login_btn_cancle:                             //登录界面的注销按钮
-                    cancel();
-                    break;
-                case R.id.login_text_change_pwd:                             //登录界面的注销按钮
-                    Intent intent_Login_to_reset = new Intent(Login.this,Resetpwd.class) ;    //切换Login Activity至User Activity
-                    startActivity(intent_Login_to_reset);
-                    finish();
-                    break;
-            }
-        }
-    };
 
     public void login() {                                              //登录按钮监听事件
         if (isUserNameAndPwdValid()) {
@@ -118,10 +121,15 @@ public class Login extends Activity {                 //登录界面活动
                 }
                 editor.commit();
 
-                Intent intent = new Intent(Login.this,User.class) ;    //切换Login Activity至User Activity
-                startActivity(intent);
-                finish();
-                Toast.makeText(this, getString(R.string.login_success),Toast.LENGTH_SHORT).show();//登录成功提示
+                try {
+                    Intent intent = new Intent(LoginActivity.this, MerchantActivity.class);    //切换Login Activity至User Activity
+                    startActivity(intent);
+                    finish();
+                    Toast.makeText(this, getString(R.string.login_success), Toast.LENGTH_SHORT).show();//登录成功提示
+                } catch (Exception e) {
+                    Log.i("login", "login: " + e.getMessage());
+                }
+
             }else if(result==0){
                 Toast.makeText(this, getString(R.string.login_fail),Toast.LENGTH_SHORT).show();  //登录失败提示
             }

@@ -4,6 +4,39 @@
 
     <application
         android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".activity.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.UserActivity"
+            android:label="个人中心"/>
+        <activity
+            android:name=".activity.RegisterActivity"
+            android:label="用户注册"/>
+        <activity
+            android:name=".activity.ResetpwdActivity"
+            android:label="密码修改"/>
+
+        <activity
+            android:name=".activity.MerchantActivity"
+            android:label="登录首页"/>
+
+        <activity
+            android:name=".activity.MainActivity"
+            android:label="假首页"/>
+
+    </application>
+
+    <!--<application
+        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="PM2.5_V2.0"
         android:supportsRtl="true"
@@ -15,11 +48,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".User"
-            android:label="个人中心"/>
+                  android:label="个人中心"/>
         <activity android:name=".Register"
-            android:label="用户注册"/>
+                  android:label="用户注册"/>
         <activity android:name=".Resetpwd"
-            android:label="密码修改"></activity>
-    </application>
+                  android:label="密码修改"></activity>
+    </application>-->
 
 </manifest>
+
+
