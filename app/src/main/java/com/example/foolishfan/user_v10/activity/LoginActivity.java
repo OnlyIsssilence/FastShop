@@ -74,7 +74,7 @@ public class LoginActivity extends Activity {                 //登录界面活�
 
         mChangepwdText = (TextView) findViewById(R.id.login_text_change_pwd);
 
-        mRememberCheck = (CheckBox) findViewById(R.id.Login_Remember);
+        mRememberCheck = (CheckBox) findViewById(R.id.Login_lock);
 
         login_sp = getSharedPreferences("userInfo", 0);
         String name=login_sp.getString("USER_NAME", "");
