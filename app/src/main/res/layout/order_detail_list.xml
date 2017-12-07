@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_top_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_20_dp">
+
+        <TextView
+            android:id="@+id/tv_order_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2017-11-03 15:56:23" />
+
+        <TextView
+            android:id="@+id/tv_commodity_price_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="元" />
+
+        <TextView
+            android:id="@+id/tv_commodity_price_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/tv_commodity_price_unit"
+            android:text="99" />
+
+        <TextView
+            android:id="@+id/tv_commodity_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/tv_commodity_price_num"
+            android:text="商品总价: " />
+        <TextView
+            android:id="@+id/tv_commodity_category_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/tv_commodity_price"
+            android:text="66" />
+
+        <TextView
+            android:id="@+id/tv_commodity_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/tv_commodity_category_num"
+            android:text="商品种类: " />
+
+    </RelativeLayout>
+
+    <view
+        android:visibility="gone"
+        android:id="@+id/view_line1"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/rl_top_info"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="@dimen/dimen_20_dp" />
+
+    <ListView
+        android:visibility="gone"
+        android:id="@+id/lv_commodity"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view_line1"
+        android:layout_marginLeft="@dimen/dimen_20_dp"
+        android:layout_marginRight="@dimen/dimen_20_dp"
+        android:cacheColorHint="#00000000"
+        android:divider="@color/user_center_divide_line"
+        android:dividerHeight="1px"
+        android:listSelector="#00000000"
+        android:orientation="vertical"/>
+
+</RelativeLayout>
