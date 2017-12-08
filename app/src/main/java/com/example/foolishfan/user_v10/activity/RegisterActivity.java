@@ -27,7 +27,7 @@ public class RegisterActivity extends AppCompatActivity {
                     register_check();
                     break;
                 case R.id.register_btn_cancel:                     //取消按钮的监听事件,由注册界面返回登录界面
-                    Intent intent_Register_to_Login = new Intent(RegisterActivity.this, LoginActivity.class);    //切换User Activity至Login Activity
+                    Intent intent_Register_to_Login = new Intent(RegisterActivity.this, AnotherLogginActivity.class);    //切换User Activity至Login Activity
                     startActivity(intent_Register_to_Login);
                     finish();
                     break;
@@ -39,7 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try {
-            setContentView(R.layout.register);
+            setContentView(R.layout.register_another);
             mAccount = (EditText) findViewById(R.id.resetpwd_edit_name);
             mPwd = (EditText) findViewById(R.id.resetpwd_edit_pwd_old);
             mPwdCheck = (EditText) findViewById(R.id.resetpwd_edit_pwd_new);
@@ -85,7 +85,7 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(this, getString(R.string.register_fail),Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(this, getString(R.string.register_success),Toast.LENGTH_SHORT).show();
-                    Intent intent_Register_to_Login = new Intent(RegisterActivity.this, LoginActivity.class);    //切换User Activity至Login Activity
+                    Intent intent_Register_to_Login = new Intent(RegisterActivity.this, AnotherLogginActivity.class);    //切换User Activity至Login Activity
                     startActivity(intent_Register_to_Login);
                     finish();
                 }

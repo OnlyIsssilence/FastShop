@@ -28,9 +28,9 @@
 
     <string name="settlement">去结算</string>
     <string name="shopping_cart">购物车</string>
-    <string name="service_products">服务产品</string>
-    <string name="business">商家</string>
-    <string name="evaluate">评价</string>
+    <string name="service_products">新鲜水果</string>
+    <string name="business">新鲜蔬菜</string>
+    <string name="evaluate">新鲜肉类</string>
 
 
     <string name="input_account_tips"> 用户名/手机号</string>

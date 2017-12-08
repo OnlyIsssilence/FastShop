@@ -29,7 +29,6 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-
 import com.example.foolishfan.user_v10.R;
 import com.example.foolishfan.user_v10.adapter.ShopAdapter;
 import com.example.foolishfan.user_v10.adapter.TestSectionedAdapter;
@@ -43,6 +42,7 @@ import com.example.foolishfan.user_v10.view.PinnedHeaderListView;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by 曹博 on 2016/6/6.
@@ -147,21 +147,60 @@ public class ProductsFragment extends Fragment implements View.OnClickListener, 
     }
 
     public List<ProductType> getData() {
+        Random random = new Random();
         productCategorizes = new ArrayList<>();
-        for (int i = 1; i < 5; i++) {
-            ProductType productCategorize = new ProductType();
-            productCategorize.setType("分类信息" + i);
-            shopProductsAll = new ArrayList<>();
-            for (int j = 1; j < 6; j++) {
-                ShopProduct product = new ShopProduct();
-                product.setId(154788 + i + j);
-                product.setGoods("衬衫" + i);
-                product.setPrice(18 + "");
-                shopProductsAll.add(product);
-            }
-            productCategorize.setProduct(shopProductsAll);
-            productCategorizes.add(productCategorize);
+        ProductType productCategorize1 = new ProductType();
+        productCategorize1.setType("西红柿");
+        shopProductsAll = new ArrayList<>();
+        for (int j = 1; j < 6; j++) {
+            ShopProduct product = new ShopProduct();
+            product.setId(154788 + j);
+            product.setGoods("西红柿" + j);
+            product.setPrice(random.nextInt(100) + "");
+            shopProductsAll.add(product);
         }
+        productCategorize1.setProduct(shopProductsAll);
+        productCategorizes.add(productCategorize1);
+
+        ProductType productCategorize2 = new ProductType();
+        productCategorize2.setType("土豆");
+        shopProductsAll = new ArrayList<>();
+        for (int j = 1; j < 3; j++) {
+            ShopProduct product = new ShopProduct();
+            product.setId(154788 + j);
+            product.setGoods("土豆" + j);
+            product.setPrice(random.nextInt(10) + "");
+            shopProductsAll.add(product);
+        }
+        productCategorize2.setProduct(shopProductsAll);
+        productCategorizes.add(productCategorize2);
+
+        ProductType productCategorize3 = new ProductType();
+        productCategorize3.setType("羊肉");
+        shopProductsAll = new ArrayList<>();
+        for (int j = 1; j < 3; j++) {
+            ShopProduct product = new ShopProduct();
+            product.setId(154788 + j);
+            product.setGoods("羊肉" + j);
+            product.setPrice(random.nextInt(200) + "");
+            shopProductsAll.add(product);
+        }
+        productCategorize3.setProduct(shopProductsAll);
+        productCategorizes.add(productCategorize3);
+
+        ProductType productCategorize4 = new ProductType();
+        productCategorize4.setType("灰面粉");
+        shopProductsAll = new ArrayList<>();
+        for (int j = 1; j < 7; j++) {
+            ShopProduct product = new ShopProduct();
+            product.setId(154788 + j);
+            product.setGoods("灰面粉" + j);
+            product.setPrice(random.nextInt(50) + "");
+            shopProductsAll.add(product);
+        }
+        productCategorize4.setProduct(shopProductsAll);
+        productCategorizes.add(productCategorize4);
+
         return productCategorizes;
     }
 

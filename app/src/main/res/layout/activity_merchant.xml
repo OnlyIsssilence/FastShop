@@ -33,6 +33,7 @@
 
 
             <RadioButton
+                android:visibility="visible"
                 android:id="@+id/preferential_rb"
                 android:layout_width="@dimen/dimen_0_dp"
                 android:layout_height="wrap_content"
@@ -46,6 +47,7 @@
                 android:textSize="@dimen/dimen_14_dp"/>
 
             <RadioButton
+                android:visibility="visible"
                 android:id="@+id/coupon_rb"
                 android:layout_width="@dimen/dimen_0_dp"
                 android:layout_height="wrap_content"
